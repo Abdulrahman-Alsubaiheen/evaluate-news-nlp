@@ -6,8 +6,7 @@ function handleSubmit(event) {
 
     // alert(" handleSubmit-> Url : " + Url);
 
-    Client.checkForUrl(Url)
-    if(true){
+    if(Client.checkForUrl(Url)){
 
         postData('http://localhost:8081/api' , {url : Url})
 

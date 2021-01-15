@@ -1,12 +1,13 @@
-projectData = {}
-const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1?key=';
-const API_KEY = process.env.API_KEY;
-
 const dotenv = require('dotenv');
 dotenv.config();
 
+projectData = {}
+const baseUrl = 'https://api.meaningcloud.com/sentiment-2.1';
+const API_KEY = process.env.API_KEY;
+
 var path = require('path')
 const mockAPIResponse = require('./mockAPI.js')
+const fetch = require("node-fetch");
 
 const express = require('express')
 const app = express()
@@ -46,8 +47,8 @@ app.get('/test', function (req, res) {
 // ( POST )  
 app.post('/api', async (req, res) => {
 
-    const response = await fetch(`${baseUrl}?key=${API_KEY}&of=json&txt=${req.body.url}&model=general&lang=en`);
+    const response = await fetch(`${baseUrl}?key=${API_KEY}&of=json&url=${req.body.url}&model=general&lang=en`);
     const data = await response.json();
 
-     res.send(data);
-    });
+    res.send(data);
+});
