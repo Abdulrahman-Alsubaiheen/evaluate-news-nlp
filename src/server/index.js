@@ -33,10 +33,9 @@ app.listen(8081, function () {
 
 // ~~~~~~ Routes ~~~~~~
 
-// $
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html')
+    // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 app.get('/test', function (req, res) {
